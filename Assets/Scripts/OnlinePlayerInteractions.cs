@@ -8,7 +8,7 @@ public class OnlinePlayerInteractions : MonoBehaviour
     OnlinePlayerMovement cm;
     //[SerializeField] public GameObject currentWeapon;
     //PlayerInputs inputs;
-    WeaponHandler weaponHandler;
+    WeaponHandlerOnline weaponHandler;
     PhotonView view;
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class OnlinePlayerInteractions : MonoBehaviour
         cm = GetComponent<OnlinePlayerMovement>();
         view = GetComponent<PhotonView>();
         //inputs = GetComponent<PlayerInputs>();
-        weaponHandler = GetComponent<WeaponHandler>();
+        weaponHandler = GetComponent<WeaponHandlerOnline>();
     }
 
     // Update is called once per frame
@@ -25,13 +25,14 @@ public class OnlinePlayerInteractions : MonoBehaviour
         if (!view.IsMine) return;
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Shoot();
+            view.RPC("Shoot", RpcTarget.All);
         }
         if (Input.GetKeyDown(KeyCode.G)) weaponHandler.DropWeapon();
         cm.anim.SetBool("Dance", Input.GetKey(KeyCode.T));
-        if (Input.GetKeyDown(KeyCode.E)) weaponHandler.PickClosestWeapon();
+        if (Input.GetKeyDown(KeyCode.E)) weaponHandler.pv.RPC("PickClosestWeapon", RpcTarget.All);
 
     }
+    [PunRPC]
     void Shoot()
     {
         cm.anim.SetTrigger("Shoot");

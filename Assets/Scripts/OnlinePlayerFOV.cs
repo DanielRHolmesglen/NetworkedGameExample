@@ -13,10 +13,10 @@ public class OnlinePlayerFOV : MonoBehaviour
 
     public List<Transform> visibleTargets = new List<Transform>();
 
-    CharacterMovement characterMovement;
+    OnlinePlayerMovement characterMovement;
     void Start()
     {
-        characterMovement = GetComponent<CharacterMovement>();
+        characterMovement = GetComponent<OnlinePlayerMovement>();
         StartCoroutine("FindTargetsWithDelay", 0.2f);
     }
 

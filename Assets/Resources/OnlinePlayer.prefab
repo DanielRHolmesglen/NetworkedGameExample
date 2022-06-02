@@ -607,13 +607,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7700927011974430118}
   - component: {fileID: 7700927011974430116}
-  - component: {fileID: 7700927011974430169}
   - component: {fileID: 8845605888122523636}
   - component: {fileID: 336219294667152141}
   - component: {fileID: 4486561823186192073}
   - component: {fileID: 2038054032000749477}
   - component: {fileID: 1292306182492843232}
   - component: {fileID: 8640475303883653341}
+  - component: {fileID: 1281271090511038949}
   m_Layer: 6
   m_Name: OnlinePlayer
   m_TagString: Player
@@ -656,25 +656,6 @@ CharacterController:
   m_SkinWidth: 0.05
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &7700927011974430169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7700927011974430115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f40d7a6537408042932e9b21b8e43dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWeapon: {fileID: 0}
-  weaponHand: {fileID: 3108424487901017680}
-  reachableObjects: []
-  reach: 1
-  pickableLayer:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!114 &8845605888122523636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,10 +723,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   startingHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   canBeDamaged: 0
   healthUI: {fileID: 0}
   healthUIImage: {fileID: 7700927010301322031}
+  pv: {fileID: 0}
 --- !u!114 &1292306182492843232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -766,6 +748,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 8640475303883653341}
+  - {fileID: 1281271090511038949}
   - {fileID: 3155729146585555474}
   sceneViewId: 0
   InstantiationId: 0
@@ -786,6 +769,26 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &1281271090511038949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7700927011974430115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cbab75f4b7a4de4cac2c898c4fa51da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: {fileID: 0}
+  weaponHand: {fileID: 3108424487901017680}
+  reachableObjects: []
+  reach: 1
+  pickableLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  pv: {fileID: 0}
 --- !u!1 &7700927012240466925
 GameObject:
   m_ObjectHideFlags: 0

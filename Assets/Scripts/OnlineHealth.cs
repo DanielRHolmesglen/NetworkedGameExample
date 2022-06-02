@@ -8,10 +8,16 @@ using Photon.Pun;
 public class OnlineHealth : Health
 {
     public Image healthUIImage;
+    public PhotonView pv;
+    private void Start()
+    {
+        pv = GetComponent<PhotonView>();
+    }
     private void Update()
     {
         UpdateHealthUI();
     }
+    [PunRPC]
     public override void TakeDamage(int amount, int damager)
     {
         base.TakeDamage(amount, damager);
