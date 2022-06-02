@@ -16,7 +16,7 @@ public class WeaponHandlerOnline : MonoBehaviour, IPunObservable
         pv = GetComponent<PhotonView>();
     }
 
-    [PunRPC]
+    //[PunRPC]
     public void PickUpWeapon(Transform newWeapon)
     {
         DropWeapon();
@@ -32,6 +32,7 @@ public class WeaponHandlerOnline : MonoBehaviour, IPunObservable
 
         newWeapon.GetComponent<PickUp>().canBePickedUp = false;
         currentWeapon = newWeapon.gameObject;
+        currentWeapon.GetComponent<OnlinePistol>().player = transform.root;
     }
     //[PunRPC]
     public void DropWeapon()
@@ -46,6 +47,7 @@ public class WeaponHandlerOnline : MonoBehaviour, IPunObservable
         rb.useGravity = true;
         rb.AddForce(currentWeapon.transform.forward * 2 + currentWeapon.transform.up * 3, ForceMode.Impulse);
         currentWeapon.GetComponent<PickUp>().canBePickedUp = true;
+        currentWeapon.GetComponent<OnlinePistol>().player = null;
         currentWeapon = null;
 
     }

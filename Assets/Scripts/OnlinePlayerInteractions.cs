@@ -27,7 +27,7 @@ public class OnlinePlayerInteractions : MonoBehaviour
         {
             view.RPC("Shoot", RpcTarget.All);
         }
-        if (Input.GetKeyDown(KeyCode.G)) weaponHandler.DropWeapon();
+        if (Input.GetKeyDown(KeyCode.G)) weaponHandler.pv.RPC("DropWeapon", RpcTarget.All);
         cm.anim.SetBool("Dance", Input.GetKey(KeyCode.T));
         if (Input.GetKeyDown(KeyCode.E)) weaponHandler.pv.RPC("PickClosestWeapon", RpcTarget.All);
 

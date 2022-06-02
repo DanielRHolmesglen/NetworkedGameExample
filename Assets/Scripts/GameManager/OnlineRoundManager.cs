@@ -22,6 +22,7 @@ public class OnlineRoundManager : MonoBehaviour
         #endregion
     }
     //list of players
+    public GameObject playerPrefab;
     public List<GameObject> players = new List<GameObject>();
     //list of scores
     public int[] playerScores;
@@ -34,30 +35,19 @@ public class OnlineRoundManager : MonoBehaviour
     public void Start()
     {
         SetupScene();
-        StartCoroutine(Timer(roundTime));
+        //StartCoroutine(Timer(roundTime));
     }
     //SETUP SCENE
     //check that all required scripts and prefabs are in the scene. Set up play area, and reset all variables for a new round
     //run the spawn players function for each player
     public void SetupScene()
     {
-        var playerNumber = MasterGameManager.instance.numberOfPlayers;
-        roundTime = MasterGameManager.instance.roundTime;
-        maxKills = MasterGameManager.instance.killLimit;
-
+        var playerNumber = PhotonNetwork.CountOfPlayersInRooms;
         playerScores = new int[playerNumber];
-
-        for(int i = 0; i < playerNumber; i++)
-        {
-            if(i >= players.Count)
-            {
-                players.Add(players[0]);
-            }
-        }
-        for (int i = 1; i < players.Count+1; i++)
-        {
-            SpawnPlayer(i);
-        }
+        players = new List<GameObject>(playerNumber);
+        
+        GameObject newPlayer = PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+        players[newPlayer.GetComponent<PhotonView>().OwnerActorNr] = newPlayer;
         UIManager.UpdateScoreUI();
     }
     //SPAWN PLAYERS
@@ -82,6 +72,7 @@ public class OnlineRoundManager : MonoBehaviour
     //UPDATE SCORE
     // increments or decrements the score of a player, then checks all player scores to see if someone has won.
     // triggers the end round and passes information on. also calls out to the UI manager if it exists to update.
+    [PunRPC]
     public void UpdateScore(int playerScoring, int playerKilled)
     {
         if (playerScoring == 0 || playerScoring == playerKilled)

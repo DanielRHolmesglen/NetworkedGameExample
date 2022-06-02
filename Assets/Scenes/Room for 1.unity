@@ -1907,7 +1907,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
@@ -2386,9 +2385,56 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2794887962425038594, guid: dd0fd442b71aab847b79e2957517d9fc, type: 3}
   m_PrefabInstance: {fileID: 5438511012193434376}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 5438511012193434378}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca7bb2556a11c18438c918b69077b71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5438511012193434378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7307775209743565940, guid: dd0fd442b71aab847b79e2957517d9fc, type: 3}
+  m_PrefabInstance: {fileID: 5438511012193434376}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5438511012193434379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5438511012193434378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &5438511012193434380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5438511012193434378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24538969d020644d9d1b99626d3ad51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pv: {fileID: 5438511012193434379}
+  playerPrefab: {fileID: 7700927011974430115, guid: 313aa5b910e35b145a6174e8ef2c21a3, type: 3}
+  players: []
+  playerScores: 
+  spawnPositions: []
+  maxKills: 10
+  roundTime: 10
+  UIManager: {fileID: 0}

@@ -13,7 +13,7 @@ public class OnlinePistol : MonoBehaviour, IShootable
     [SerializeField] Transform[] raycastPoints;
     [SerializeField] LineRenderer lR;
     [SerializeField] LayerMask shootableLayer;
-
+    public Transform player;
 
     public void Shoot()
     {
@@ -23,7 +23,7 @@ public class OnlinePistol : MonoBehaviour, IShootable
         RaycastHit hit;
         foreach (Transform raypoint in raycastPoints)
         {
-            if (Physics.Raycast(raypoint.position, raypoint.forward, out hit, range, shootableLayer))
+            if (Physics.Raycast(raypoint.position, transform.root.forward, out hit, range, shootableLayer))
             {
                 if (hit.collider.CompareTag("Player") && hit.collider.gameObject != gameObject)
                 {

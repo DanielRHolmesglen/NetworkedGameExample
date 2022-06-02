@@ -10228,7 +10228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   reloadTime: 0
-  damage: 1
+  damage: 10
   ammo: 10
   maxAmmo: 10
   pS: {fileID: 7574464763883892280}
@@ -10244,7 +10244,8 @@ MonoBehaviour:
   lR: {fileID: 7574464763883892284}
   shootableLayer:
     serializedVersion: 2
-    m_Bits: 211
+    m_Bits: 83
+  player: {fileID: 0}
 --- !u!114 &-4131899290925461700
 MonoBehaviour:
   m_ObjectHideFlags: 0

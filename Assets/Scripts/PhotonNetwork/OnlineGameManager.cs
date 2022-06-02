@@ -57,11 +57,11 @@ public class OnlineGameManager : MonoBehaviourPunCallbacks
             //new
             var player = PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
             //player.GetComponentInChildren<TMP_Text>().text = PhotonNetwork.LocalPlayer.ActorNumber + " " + PhotonNetwork.NickName;
-            players.Add(player);
+            //players.Add(player);
 
             
 
-            UpdatePlayerListUI();
+            //UpdatePlayerListUI();
         }
     }
     void UpdatePlayerListUI()
