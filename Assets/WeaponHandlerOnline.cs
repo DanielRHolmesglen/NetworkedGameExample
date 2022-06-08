@@ -92,7 +92,7 @@ public class WeaponHandlerOnline : MonoBehaviour, IPunObservable
     {
 
     }
-    private void Update()
+    private void FixedUpdate()
     {
         GetReachableWeapons();
     }

@@ -12,6 +12,7 @@ public class OnlineHealth : Health
     private void Start()
     {
         pv = GetComponent<PhotonView>();
+        OnlineRoundManager.instance.pv.RPC("AddPlayersToList", RpcTarget.All);
     }
     private void Update()
     {

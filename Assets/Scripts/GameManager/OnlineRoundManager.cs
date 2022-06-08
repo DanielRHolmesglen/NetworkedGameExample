@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
+using Photon.Pun;//NEW
 
 public class OnlineRoundManager : MonoBehaviour
 {
     //SINGLETON PATTERN
     public static OnlineRoundManager instance;
-    public PhotonView pv;
+    public PhotonView pv; //NEW
     private void Awake()
     {
         #region Singleton pattern
-        if(instance != null)
+        if (instance != null)
         {
             Destroy(gameObject);
         }
@@ -23,7 +23,7 @@ public class OnlineRoundManager : MonoBehaviour
     }
     //list of players
     public GameObject playerPrefab;
-    public List<GameObject> players = new List<GameObject>();
+    public GameObject[] players;
     //list of scores
     public int[] playerScores;
     //list of spawn positions
@@ -31,7 +31,7 @@ public class OnlineRoundManager : MonoBehaviour
 
     public int maxKills, roundTime;
     //list of scripts for the game manager to reference
-    [SerializeField] RoundUIManager UIManager;
+    [SerializeField] OnlineRoundUIManager UIManager; //EDITED
     public void Start()
     {
         SetupScene();
@@ -42,13 +42,13 @@ public class OnlineRoundManager : MonoBehaviour
     //run the spawn players function for each player
     public void SetupScene()
     {
-        var playerNumber = PhotonNetwork.CountOfPlayersInRooms;
+        //NEW
+        var playerNumber = PhotonNetwork.CurrentRoom.PlayerCount; // this works assuming all players have joined the room before the level has loaded.
         playerScores = new int[playerNumber];
-        players = new List<GameObject>(playerNumber);
-        
+        players = new GameObject[playerNumber];
         GameObject newPlayer = PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
-        players[newPlayer.GetComponent<PhotonView>().OwnerActorNr] = newPlayer;
-        UIManager.UpdateScoreUI();
+        //players[newPlayer.GetComponent<PhotonView>().OwnerActorNr] = newPlayer;
+        //UIManager.UpdateScoreUI();
     }
     //SPAWN PLAYERS
     //takes in a player, finds a random position from the list, and spawns the player in that location.
@@ -110,5 +110,16 @@ public class OnlineRoundManager : MonoBehaviour
         }
         Debug.Log("Game Over! Player " + WinningPlayer + " Has won the game!");
         if (UIManager != null) UIManager.DisplayResults(WinningPlayer + 1);
+    }
+    [PunRPC]
+    public void AddPlayersToList()
+    {
+        var PlayerObjects = GameObject.FindGameObjectsWithTag("Player");
+        foreach(GameObject player in PlayerObjects)
+        {
+            var num = player.GetComponent<PhotonView>().CreatorActorNr;
+            players[num - 1] = player;
+        }
+        
     }
 }

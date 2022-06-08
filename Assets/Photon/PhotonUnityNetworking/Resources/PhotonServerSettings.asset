@@ -45,6 +45,7 @@ MonoBehaviour:
   - TakeDamage
   - DropWeapon
   - UpdateScore
+  - AddPlayersToList
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
