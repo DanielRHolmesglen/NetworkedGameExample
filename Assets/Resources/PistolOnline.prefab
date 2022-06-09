@@ -10228,7 +10228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   reloadTime: 0
-  damage: 10
+  damage: 50
   ammo: 10
   maxAmmo: 10
   pS: {fileID: 7574464763883892280}

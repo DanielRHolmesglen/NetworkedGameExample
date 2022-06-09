@@ -30,68 +30,6 @@ Transform:
   m_Father: {fileID: 8316631850852675387}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &7700927010198364587
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7358417253645364642}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: a6bac0f2ba23ceb41bdaf20623d91fc9, type: 3}
-  m_Controller: {fileID: 9100000, guid: 7fba422b25c01ee4aaceb0f60f803771, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3155729146585555474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7358417253645364642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 4
-    SynchronizeType: 1
-    Name: HasInput
-  - Type: 1
-    SynchronizeType: 1
-    Name: ForwardMomentum
-  - Type: 1
-    SynchronizeType: 1
-    Name: SideMomentum
-  - Type: 9
-    SynchronizeType: 1
-    Name: Shoot
-  - Type: 4
-    SynchronizeType: 1
-    Name: Jumping
-  - Type: 4
-    SynchronizeType: 1
-    Name: Dance
-  - Type: 4
-    SynchronizeType: 1
-    Name: Death
-  m_SynchronizeLayers:
-  - SynchronizeType: 1
-    LayerIndex: 0
-  - SynchronizeType: 1
-    LayerIndex: 1
-  - SynchronizeType: 1
-    LayerIndex: 2
 --- !u!1 &7700927010301322029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,11 +1370,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6bac0f2ba23ceb41bdaf20623d91fc9, type: 3}
---- !u!4 &8316631850852675387 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: a6bac0f2ba23ceb41bdaf20623d91fc9, type: 3}
-  m_PrefabInstance: {fileID: 7700927010476790003}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7878353953448228632 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a6bac0f2ba23ceb41bdaf20623d91fc9, type: 3}
@@ -1447,3 +1380,70 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a6bac0f2ba23ceb41bdaf20623d91fc9, type: 3}
   m_PrefabInstance: {fileID: 7700927010476790003}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &8316631850852675387 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: a6bac0f2ba23ceb41bdaf20623d91fc9, type: 3}
+  m_PrefabInstance: {fileID: 7700927010476790003}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7700927010198364587
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7358417253645364642}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: a6bac0f2ba23ceb41bdaf20623d91fc9, type: 3}
+  m_Controller: {fileID: 9100000, guid: 7fba422b25c01ee4aaceb0f60f803771, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3155729146585555474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7358417253645364642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: HasInput
+  - Type: 1
+    SynchronizeType: 1
+    Name: ForwardMomentum
+  - Type: 1
+    SynchronizeType: 1
+    Name: SideMomentum
+  - Type: 9
+    SynchronizeType: 1
+    Name: Shoot
+  - Type: 4
+    SynchronizeType: 1
+    Name: Jumping
+  - Type: 4
+    SynchronizeType: 1
+    Name: Dance
+  - Type: 4
+    SynchronizeType: 1
+    Name: Death
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+  - SynchronizeType: 1
+    LayerIndex: 1
+  - SynchronizeType: 1
+    LayerIndex: 2

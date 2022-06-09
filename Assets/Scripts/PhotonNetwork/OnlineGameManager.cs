@@ -79,15 +79,12 @@ public class OnlineGameManager : MonoBehaviourPunCallbacks
         {
             Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
         }
-        else if (isFull)//NEW
+        else
         {
             PhotonNetwork.AutomaticallySyncScene = true;
             PhotonNetwork.LoadLevel("OnlineLevel");
         }
-        else
-        {
-            Debug.Log("Attempted to load scene but there is not enough players");
-        }
+        
         
     }
 

@@ -52,21 +52,22 @@ public class OnlineRoundManager : MonoBehaviour
     }
     //SPAWN PLAYERS
     //takes in a player, finds a random position from the list, and spawns the player in that location.
+    [PunRPC]
     public void SpawnPlayer(int playerNumber)
     {
-        var spawnPoint = new Vector3(Random.Range(spawnPositions[0].position.x, spawnPositions[1].position.x), 0, Random.Range(spawnPositions[0].position.z, spawnPositions[1].position.z));
-        var player = Instantiate(players[playerNumber-1], spawnPoint, players[playerNumber-1].transform.rotation);
+        var spawnPoint = Random.Range(0, spawnPositions.Count); //changed
+        var player = players[playerNumber-1];
 
-        var playerInputs = player.GetComponent<PlayerInputs>();
-        playerInputs.playerNum = playerNumber;
-        playerInputs.playerName = MasterGameManager.instance.playersNames[playerNumber - 1];
-        playerInputs.DetermineInputs();
-        playerInputs.UpdateUI();
+        player.SetActive(false);
+        player.transform.position = spawnPositions[spawnPoint].position;
 
-
-        var playerHealth = player.GetComponent<PlayerHealth>();
+        player.SetActive(true);
+        var playerHealth = player.GetComponent<OnlineHealth>();
+        playerHealth.currentHealth = playerHealth.maxHealth;
         playerHealth.canBeDamaged = false;
         playerHealth.Invoke("ResetDamage", 2f);
+
+        player.GetComponentInChildren<Animator>().SetBool("Death", false);
 
     }
     //UPDATE SCORE
@@ -119,7 +120,16 @@ public class OnlineRoundManager : MonoBehaviour
         {
             var num = player.GetComponent<PhotonView>().CreatorActorNr;
             players[num - 1] = player;
-        }
-        
+        }  
+    }
+    void ActivatePlayer(GameObject player)
+    {
+        player.SetActive(true);
+        var playerHealth = player.GetComponent<OnlineHealth>();
+        playerHealth.currentHealth = playerHealth.maxHealth;
+        playerHealth.canBeDamaged = false;
+        playerHealth.Invoke("ResetDamage", 2f);
+
+        player.GetComponentInChildren<Animator>().SetBool("Death", false);
     }
 }

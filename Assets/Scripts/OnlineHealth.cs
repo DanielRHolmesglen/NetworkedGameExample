@@ -28,14 +28,16 @@ public class OnlineHealth : Health
     public override void TriggerDeath(int damager)
     {
         base.TriggerDeath(damager);
-        OnlineRoundManager.instance.pv.RPC("UpdateScore", RpcTarget.All, damager, pv.OwnerActorNr);
+        //OnlineRoundManager.instance.pv.RPC("UpdateScore", RpcTarget.All, damager, pv.OwnerActorNr-1);
+        OnlineRoundManager.instance.UpdateScore(damager, pv.ControllerActorNr);
         Animator anim = GetComponentInChildren<Animator>();
         anim.SetBool("Death", true);
     }
     public override void Die()
     {
-        
-        Destroy(gameObject);
+       // OnlineRoundManager.instance.pv.RPC("SpawnPlayer", RpcTarget.All, pv.OwnerActorNr - 1);
+        OnlineRoundManager.instance.SpawnPlayer(pv.ControllerActorNr);
+        //Destroy(gameObject);
     }
     public override void UpdateHealthUI()
     {
